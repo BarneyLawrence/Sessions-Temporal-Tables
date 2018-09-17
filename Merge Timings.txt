@@ -1,0 +1,60 @@
+10 million rows
+Baseline -
+
+SQL Server parse and compile time: 
+   CPU time = 10036 ms, elapsed time = 10036 ms.
+Table 'Fact_Sales_Big'. Scan count 1, logical reads 1523038, physical reads 2, read-ahead reads 17580, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Staging_Sales_Big'. Scan count 1, logical reads 19043, physical reads 1, read-ahead reads 18523, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+
+ SQL Server Execution Times:
+   CPU time = 36828 ms,  elapsed time = 47163 ms.
+
+Temporal -
+
+SQL Server parse and compile time: 
+   CPU time = 2720 ms, elapsed time = 6549 ms.
+Table 'Fact_TemporalSales_Big_History'. Scan count 0, logical reads 243162, physical reads 2, read-ahead reads 23, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Worktable'. Scan count 0, logical reads 0, physical reads 0, read-ahead reads 0, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Fact_TemporalSales_Big'. Scan count 1, logical reads 1548277, physical reads 2, read-ahead reads 41822, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Staging_Sales_Big'. Scan count 1, logical reads 19043, physical reads 2, read-ahead reads 19033, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+
+ SQL Server Execution Times:
+   CPU time = 40016 ms,  elapsed time = 72415 ms.
+
+Type 2 -
+
+SQL Server parse and compile time: 
+   CPU time = 5564 ms, elapsed time = 5564 ms.
+Table 'Fact_Type2Sales_Big'. Scan count 5, logical reads 6117645, physical reads 1, read-ahead reads 30464, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Staging_Sales_Big'. Scan count 5, logical reads 19341, physical reads 1, read-ahead reads 19043, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Worktable'. Scan count 0, logical reads 0, physical reads 0, read-ahead reads 0, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+
+ SQL Server Execution Times:
+   CPU time = 84673 ms,  elapsed time = 70213 ms. 
+
+3 million rows
+Baseline - 
+
+Table 'Fact_Sales_Big'. Scan count 1, logical reads 456868, physical reads 2, read-ahead reads 5425, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Staging_Sales_Big'. Scan count 1, logical reads 5717, physical reads 2, read-ahead reads 5700, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+
+ SQL Server Execution Times:
+   CPU time = 10281 ms,  elapsed time = 11306 ms.
+
+Temporal - 
+
+Table 'Fact_TemporalSales_Big_History'. Scan count 0, logical reads 743917, physical reads 2, read-ahead reads 307, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Fact_TemporalSales_Big'. Scan count 1, logical reads 464483, physical reads 2, read-ahead reads 12948, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Staging_Sales_Big'. Scan count 1, logical reads 5717, physical reads 2, read-ahead reads 5700, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+
+ SQL Server Execution Times:
+   CPU time = 13328 ms,  elapsed time = 22448 ms.
+
+Type 2 - 
+
+Table 'Staging_Sales_Big'. Scan count 5, logical reads 5803, physical reads 1, read-ahead reads 5710, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Fact_Type2Sales_Big'. Scan count 5, logical reads 1836973, physical reads 1, read-ahead reads 9345, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+Table 'Worktable'. Scan count 0, logical reads 0, physical reads 0, read-ahead reads 0, lob logical reads 0, lob physical reads 0, lob read-ahead reads 0.
+
+ SQL Server Execution Times:
+   CPU time = 25753 ms,  elapsed time = 20013 ms.
