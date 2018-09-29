@@ -1,3 +1,6 @@
+USE TemporalTest;
+
+--Repeating the same scripts as before with transactions.
 CREATE TABLE dbo.MyFirstTemporalTable2   
 (    
   [Number] int NOT NULL  PRIMARY KEY CLUSTERED   

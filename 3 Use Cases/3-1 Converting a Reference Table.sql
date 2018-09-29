@@ -1,3 +1,6 @@
+USE TemporalTest;
+
+--Here's a simple reference table mapping teams to contracts
 SELECT *
 FROM  dbo.ReferenceTable
 

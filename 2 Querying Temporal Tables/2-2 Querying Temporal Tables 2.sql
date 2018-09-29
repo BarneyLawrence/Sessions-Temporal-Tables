@@ -1,7 +1,11 @@
-SELECT *
-FROM dbo.MonthlyUpdates_A
-FOR SYSTEM_TIME ALL
-ORDER BY ValidFrom
+USE TemporalTest;
+
+--One table, three rows changing each month
+SELECT * FROM dbo.MonthlyUpdates_A FOR SYSTEM_TIME AS OF '2018-01-01'
+SELECT * FROM dbo.MonthlyUpdates_A FOR SYSTEM_TIME AS OF '2018-02-01'
+SELECT * FROM dbo.MonthlyUpdates_A FOR SYSTEM_TIME AS OF '2018-03-01'
+
+--Table B is the same
 
 --A simple join
 SELECT A.Number, A.Text AS Text_A, B.Text AS Text_B
@@ -81,7 +85,7 @@ FROM dbo.MonthlyUpdates_AandB_January2
 FOR SYSTEM_TIME AS OF '2018-02-01' 
 GO
 --
---Or using a table values function?
+--Or using a table valued function?
 CREATE OR ALTER VIEW dbo.MonthlyUpdates_AandB_January3
 AS
 SELECT A.Number, A.Text AS Text_A, B.Text AS Text_B

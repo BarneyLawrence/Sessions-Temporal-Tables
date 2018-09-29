@@ -1,4 +1,4 @@
-USE TemporalTest
+USE TemporalTest;
 
 --SELECT * FROM dbo.Staging_Sales_Big
 

@@ -1,5 +1,6 @@
-USE TemporalTest
+USE TemporalTest;
 
+-- Turn on actual query plans and take a look at the results
 SET STATISTICS IO,TIME ON
 
 

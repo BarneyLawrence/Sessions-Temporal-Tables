@@ -1,3 +1,5 @@
+USE TemporalTest;
+
 --Querying a temporal table
 --Building a query for each of the times we logged
 SELECT

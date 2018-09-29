@@ -1,5 +1,4 @@
-USE TemporalTest
-
+USE TemporalTest;
 
 --Our Fact table has late entries
 SELECT Count(*)
