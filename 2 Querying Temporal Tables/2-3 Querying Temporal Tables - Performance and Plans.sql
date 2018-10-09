@@ -34,15 +34,4 @@ FROM [dbo].[Fact_TemporalSales2_Big]
 FOR SYSTEM_TIME AS OF '2018-01-01'
 WHERE RowID < 100
 
---Looking at all rows
-SELECT count(*)
-FROM [dbo].[Fact_TemporalSales_Big]
-FOR SYSTEM_TIME ALL
-WHERE RowID < 100
-
-SELECT count(*)
-FROM [dbo].[Fact_TemporalSales2_Big]
-FOR SYSTEM_TIME ALL
-WHERE RowID < 100
-
 SET STATISTICS IO,TIME OFF

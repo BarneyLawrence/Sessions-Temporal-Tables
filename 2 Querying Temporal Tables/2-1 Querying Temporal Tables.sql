@@ -6,10 +6,10 @@ SELECT
 'SELECT * FROM [dbo].[MyFirstTemporalTable] FOR SYSTEM_TIME AS OF ''' + CAST(Time AS varchar(20)) + ''''
 FROM dbo.timings
 
-SELECT * FROM [dbo].[MyFirstTemporalTable] FOR SYSTEM_TIME AS OF '2018-09-12 16:46:07'
-SELECT * FROM [dbo].[MyFirstTemporalTable] FOR SYSTEM_TIME AS OF '2018-09-12 16:46:09'
-SELECT * FROM [dbo].[MyFirstTemporalTable] FOR SYSTEM_TIME AS OF '2018-09-12 16:46:11'
-SELECT * FROM [dbo].[MyFirstTemporalTable] FOR SYSTEM_TIME AS OF '2018-09-12 16:46:13'
+SELECT * FROM [dbo].[MyFirstTemporalTable] FOR SYSTEM_TIME AS OF '2018-10-07 14:45:50'
+SELECT * FROM [dbo].[MyFirstTemporalTable] FOR SYSTEM_TIME AS OF '2018-10-07 14:45:52'
+SELECT * FROM [dbo].[MyFirstTemporalTable] FOR SYSTEM_TIME AS OF '2018-10-07 14:45:54'
+SELECT * FROM [dbo].[MyFirstTemporalTable] FOR SYSTEM_TIME AS OF '2018-10-07 14:45:56'
 
 --But we can't get a time via a subquery
 SELECT *

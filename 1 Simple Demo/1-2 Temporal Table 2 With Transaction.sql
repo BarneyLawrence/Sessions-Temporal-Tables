@@ -19,7 +19,7 @@ GO
 DROP TABLE IF EXISTS dbo.timings2
 CREATE TABLE dbo.timings2 ([Change] int NOT NULL,[Time] datetime2(0) NOT NULL)
 
-
+BEGIN TRANSACTION
 
 INSERT INTO [dbo].[MyFirstTemporalTable2]
            ([Text]
@@ -30,16 +30,15 @@ INSERT INTO [dbo].[MyFirstTemporalTable2]
 INSERT INTO dbo.timings2
 VALUES (1,SYSUTCDATETIME())
 
-WAITFOR DELAY '00:00:02'
+WAITFOR DELAY '00:00:01'
 
-BEGIN TRANSACTION
 
 INSERT INTO [dbo].[MyFirstTemporalTable2]  ([Text] ,[Number])
      VALUES ('Row 3',3);
 
 INSERT INTO dbo.timings2 VALUES (2,SYSUTCDATETIME())
 
-WAITFOR DELAY '00:00:02'
+WAITFOR DELAY '00:00:01'
 
 UPDATE [dbo].[MyFirstTemporalTable2]
    SET [Text] = 'Row 2'
@@ -47,7 +46,7 @@ UPDATE [dbo].[MyFirstTemporalTable2]
 
  INSERT INTO dbo.timings2 VALUES (3,SYSUTCDATETIME())
 
-WAITFOR DELAY '00:00:02'
+WAITFOR DELAY '00:00:01'
 
 DELETE FROM [dbo].[MyFirstTemporalTable2]
 WHERE [Number] = 1
@@ -93,7 +92,7 @@ FROM [dbo].[MyFirstTemporalTable2History]
 SELECT *
 FROM [dbo].[MyFirstTemporalTable2]
 FOR SYSTEM_TIME
-	AS OF '2018-09-12 16:52:02'
+	AS OF '2018-10-07 17:32:15'
 
 
 --We can't do these
@@ -106,14 +105,8 @@ GO
 ALTER TABLE dbo.MyFirstTemporalTable2   
    SET (SYSTEM_VERSIONING = OFF)
 
---We can still insert
-INSERT INTO [dbo].[MyFirstTemporalTable2]
-           ([Number] ,[Text])
-     VALUES
-           (4, 'Row 4')
-GO
 
---What if we change the dates?
+--What if we insert dates?
 INSERT INTO [dbo].[MyFirstTemporalTable2]
            ([Number], [Text], [ValidFrom], [ValidTo])
      VALUES

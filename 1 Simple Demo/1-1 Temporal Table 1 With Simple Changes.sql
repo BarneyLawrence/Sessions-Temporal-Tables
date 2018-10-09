@@ -1,4 +1,5 @@
 USE TemporalTest;
+
 --My First Temporal Table
 CREATE TABLE dbo.MyFirstTemporalTable   
 (    
@@ -12,11 +13,11 @@ CREATE TABLE dbo.MyFirstTemporalTable
 
 GO
 
-
---Insert a row
---DELETE FROM [dbo].[MyFirstTemporalTable]
+--Creating a table to hold our update times
 DROP TABLE IF EXISTS dbo.timings
 CREATE TABLE dbo.timings ([Change] int NOT NULL,[Time] datetime2(0) NOT NULL)
+
+--Insert some a rows
 
 INSERT INTO [dbo].[MyFirstTemporalTable]
            ([Text]
@@ -24,26 +25,30 @@ INSERT INTO [dbo].[MyFirstTemporalTable]
      VALUES
            ('Row 1',1),('R0w 2',2);
 
+--Note the function used for the time
 INSERT INTO dbo.timings
 VALUES (1,SYSUTCDATETIME())
 
-WAITFOR DELAY '00:00:02'
+WAITFOR DELAY '00:00:01'
 
+--Insert another row
 INSERT INTO [dbo].[MyFirstTemporalTable]  ([Text] ,[Number])
      VALUES ('Row 3',3);
 
 INSERT INTO dbo.timings VALUES (2,SYSUTCDATETIME())
 
-WAITFOR DELAY '00:00:02'
+WAITFOR DELAY '00:00:01'
 
+--An update
 UPDATE [dbo].[MyFirstTemporalTable]
    SET [Text] = 'Row 2'
  WHERE [Number] = '2'
 
  INSERT INTO dbo.timings VALUES (3,SYSUTCDATETIME())
 
-WAITFOR DELAY '00:00:02'
+WAITFOR DELAY '00:00:01'
 
+--And a delete
 DELETE FROM [dbo].[MyFirstTemporalTable]
 WHERE [Number] = 1
 
